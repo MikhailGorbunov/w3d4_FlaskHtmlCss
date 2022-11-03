@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Calendar</h1>
+    
+
+
+
+
+    <form action="/events" method="post">
+      <label for="date">Date:</label>
+      <input type="text" name="date" id="date">
+      <label for="name">Name of the Event:</label>
+      <input type="text" name="name" id="name">
+      <label for="participants"> Number of guests:</label>
+      <input type="text" name="participants" id="participants">
+      <label for="location"> Location:</label>
+      <input type="text" name="location" id="location">
+           <!-- new text added -->
+       <label for="recurrence">Recurring:</label>
+      <input name="recurrence" id="recurrence"></input>
+     
+      <label for="description">Description:</label>
+      <textarea name="description" id="description" rows="2" cols="30"></textarea>
+ 
+
+      <input type="submit" value="Add Task">
+    </form> ADDED
+   
+
+
+   
+   
+    <div class="event-container">
+      {% for event in events %}
+  
+      <div class="event_calendar">
+        <h2>{{ event.date }}</h2> 
+        <h3><b>{{ event.name_event }}</b></h3>
+        <h4> {{ event.guest_number }}</h4>
+        <h4> <span style='font-size:30px;'>&#127983;</span>{{ event.location }}  </h4> 
+        {% if event.recurrence %}
+        <h4> {{ event.recurrence }} </h4><span style='font-size:20px;'> &#9989; </span>
+        {% else %} <span style='font-size:20px;'>&#128683;</span>
+        {% endif %}
+        <h4> {{ event.description }} </h4>
+  
+      </div>
+      {% endfor %}
+    </div>
+      
+      {% endblock %}
