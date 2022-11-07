@@ -1,17 +1,23 @@
 <html>
     <head>
-      <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+      <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+      <link rel="styles" href="{{ url_for('static', filename='java.js') }}">
       <title>{{ title }} - Calendar </title>
     </head>
     <body>
-        <ul>
-          <li class="navLink"><a href="/">Home</a></li>
-        </ul>
-        <hr>
-        {% block content %}{% endblock %}
+      <header class="header" id="myHeader">
+        <!-- <input type="image" src="static/edinburgh-university-library-EPR5CX.jpg" width="48" height="48" alt="Submit"> -->
+        <h1><a href="/books">Library</a></h1>
+  
+      </header>
+        
+
+        {% block content %}
+        {% endblock %}
     </body>
     <footer>
-
-      
-    </footer>
+      <p><a href="/books"> Address </a></p>
+      <p><a href="/books"> Instagram </a></p>
+      <p><a href="/books"> Reservation Policy </a></p> 
+  </footer>
 </html>

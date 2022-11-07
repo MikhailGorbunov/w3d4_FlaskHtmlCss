@@ -1,22 +1,22 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Calendar</h1>
+  
     
 
 
 
 
-    <form action="/events" method="post">
+    <!-- <form action="/books" method="post">
       <label for="date">Date:</label>
-      <input type="text" name="date" id="date">
-      <label for="name">Name of the Event:</label>
+      <input type="date" name="date" id="date">
+      <label for="name">Name of the book:</label>
       <input type="text" name="name" id="name">
       <label for="participants"> Number of guests:</label>
       <input type="text" name="participants" id="participants">
       <label for="location"> Location:</label>
       <input type="text" name="location" id="location">
-           <!-- new text added -->
+
        <label for="recurrence">Recurring:</label>
       <input name="recurrence" id="recurrence"></input>
      
@@ -25,28 +25,63 @@
  
 
       <input type="submit" value="Add Task">
-    </form> ADDED
+    </form> ADDED -->
    
 
 
    
    
-    <div class="event-container">
-      {% for event in events %}
+    <div class="book-container">
+      
+      <form class="book" action="/books" method="post">
+        <label for="title">Title:</label> 
+        <input type="text" name="title" id="title">
+
+        <label for="author">Author:</label>
+        <input type="text" name="author" id="author">
+
+        <label for="genre">Genre:</label>
+        <input type="text" name="genre" id="genre">
+
+        <label for="location">Location:</label>
+        <input type="text" name="location" id="location">      
+          <!-- <label for="date">Date</label>
+        <input type="date" name="date" id="date"> -->
+        <label for="number">Books available:</label>
+        <input type="number" name="number" id="number">
+        <!-- <label for="recurring">Recurring?</label>
+        <input type="checkbox" name="recurring" id="recurring" value="False"> -->
+
+        <label for="description">Description:</label>
+        <textarea  name="description" rows="2" cols="30"></textarea>
+        <input type="submit" value="Add Book" >
+      </form> <!-- ADDED -->
+      
+      {% for book in books %}
   
-      <div class="event_calendar">
-        <h2>{{ event.date }}</h2> 
-        <h3><b>{{ event.name_event }}</b></h3>
-        <h4> {{ event.guest_number }}</h4>
-        <h4> <span style='font-size:30px;'>&#127983;</span>{{ event.location }}  </h4> 
-        {% if event.recurrence %}
-        <h4> {{ event.recurrence }} </h4><span style='font-size:20px;'> &#9989; </span>
+      <div class="book">
+        <h2>Title: {{ book.title }}</h2> 
+        <h3><b>Author: {{ book.author }}</b></h3>
+        <p>Genre: {{ book.genre }}</p> 
+        <p>Location: {{ book.location }}</p>
+        <p>Books available: {{ book.number }}</p>
+        <p><a href="/books/{{loop.index}}"> More information </a></p>
+        <!-- <h4> <span style='font-size:30px;'>&#127983;</span>{{ book.location }}  </h4> 
+        {% if book.recurrence %}
+        <h4> {{ book.recurrence }} </h4><span style='font-size:20px;'> &#9989; </span>
         {% else %} <span style='font-size:20px;'>&#128683;</span>
-        {% endif %}
-        <h4> {{ event.description }} </h4>
+        {% endif %} -->
+        <!-- <h4> {{ book.description }} </h4> -->
   
+        <form class="form-inline" action="/books" method="POST">
+          <input type="submit" value="Delete">
+        </form>
+
       </div>
       {% endfor %}
+
+    
+
     </div>
       
       {% endblock %}

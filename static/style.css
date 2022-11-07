@@ -1,40 +1,96 @@
 body {
-    background-color: cornsilk ;
+    background-color: seashell;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
   } 
+
+/* Style the header */
+.header {
+  /* padding: 10px 16px; */
+  background: #555;
+  color: #f1f1f1;
+}
+
+/* Page content */
+.content {
+  padding: 16px;
+}
+
+/* The sticky class is added to the header with JS when it reaches its scroll position */
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+  padding-top: 102px;
+}
+
+
+
+ header {
+  background-color: #006680!important;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  justify-content: space-evenly;
+  gap: 10rem;
+
+ }
+
+ header> h1 > a {
+  color:blanchedalmond;
+  font-size: 2rem;
+  text-decoration:none;
+  padding: 2rem;
+  }
   
-  /* rgb(206, 51, 51); */
   .navLink li {
-      margin: 20px;
+      margin: 20px; 
+      
   }
-  
-   a {
-    color: black;
-  }
-  
-  .navLink {
+
+   .navLink {
       display: inline;
   }
   
   
-  .event--container {
+  .book-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
   }
-  
-  .event- {
+
+  .book input[type=submit]{
+    margin: 5px 125px;
+
+    padding: 10px 20px;
+    background-color: greenyellow;
+  }
+
+  .book {
     display: flex;
     flex-direction: column;
     width: 20vw;
-    background-color: white;
+    background-color: #88baca!important;
     padding: 10px;
     margin:20px;
   }
   
-  .event- p, i{
+  .book p, i{
     color:black;
     list-style: none;
     margin:3px;
+  }
+
+  .book-container input[input=submit]{
+
+    margin: 5px 125px;
+
+    padding: 10px 20px;
+    background-color: red;
   }
   
   h2 {
@@ -43,5 +99,28 @@ body {
   
   h3, h4, h5 {
     margin: 5px;
-    color:blue;
+    color:black;
+  }
+
+  footer {
+    background-color: #006680!important;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+    justify-content: space-evenly;
+    gap: 10rem;
+    margin-top: auto;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  footer > p > a {
+    color:blanchedalmond;
+    font-size: 2rem;
+    text-decoration:none;
+
   }
